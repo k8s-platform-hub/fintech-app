@@ -1,0 +1,18 @@
+- args:
+    permission:
+      columns:
+      - id
+      - year
+      - stock_id
+      - total_revenue
+      - profit_before_tax
+      - other_income
+      - total_tax
+      - net_block
+      - total_net_current_assets
+      - economic_profit
+      - ep_ratio
+      filter: {}
+    role: anonymous
+    table: stock_financial_data
+  type: create_select_permission
