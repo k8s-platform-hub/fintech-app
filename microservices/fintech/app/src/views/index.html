@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>Economic Profit Charts</title>
+        <!--Add js files-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+        <script src="https://github.com/hasura/js-sdk/releases/download/v0.1.3/hasura.min.js"></script>
+        <script>
+          window.chartColors={red:'rgb(255, 99, 132)',orange:'rgb(255, 159, 64)',yellow:'rgb(255, 205, 86)',green:'rgb(75, 192, 192)',blue:'rgb(54, 162, 235)',purple:'rgb(153, 102, 255)',grey:'rgb(201, 203, 207)'}
+        </script>
+        <script>
+            $(document).ready(function(){
+                hasura.setProject('callback66');
+
+                function makeDropdown(data){
+
+                    var sectors = [];
+                    sel = $("#dropdown-select");
+
+                    $.each(data, function(k, v){
+                      if (sectors.indexOf(v.sector_name.toString()) < 0){
+                        sectors.push(v.sector_name.toString());
+                        sel.append('<option value="' + v.sector_name + '">' + v.sector_name + '</option>');
+                      }});
+                    console.log("Unique sectors: ");
+                    console.log(sectors);
+                }
+
+                hasura.data.query({
+                    type: 'select',
+                    args: {
+                        table: 'stocks',
+                        columns: ['*']
+                    }},
+                    (data) => { makeDropdown(data)},
+                    (error) => { console.log("ERROR"); console.log(error);});
+
+
+                console.log("Now we get data from the hasura platform");
+
+                $("#dropdown-select").on('change', function(e){
+
+                    var sector = $('#dropdown-select').val();
+                    console.log(sector);
+
+                    hasura.data.query({
+                        type: 'select',
+                        args: {
+                            table: 'stocks',
+                            columns: ['*',{
+                                name: "financials",
+                                columns: ["ep_ratio","year"],
+                                order_by: "+year"
+                            }],
+                            where: {
+                                sector_name: sector
+                            }
+                        }},
+                        (data) => { drawChart(data)},
+                        (error) => { console.log("ERROR"); console.log(error);});
+
+                    function drawChart(sectors){
+
+                      // First we remove the old chart
+                      $("#canvas").remove();
+                      $("#canvas-container").append('<canvas id="canvas"></canvas>');
+
+                      var canvas = document.getElementById('canvas');
+
+                      var ctx = canvas.getContext('2d');
+
+                      var datasets = [];
+                      var index = 0;
+
+                      $.each(sectors, function(k, company){
+                        var color = window.chartColors[Object.keys(window.chartColors)[index%7]];
+                        index += 1;
+                        console.log("Colour");
+                        console.log(color);
+                        var dataset = {
+                          label: company.stock_name,
+                          backgroundColor: color, 
+                          borderColor: color, 
+                          data: [
+                            company.financials[0].ep_ratio,
+                            company.financials[1].ep_ratio,
+                            company.financials[2].ep_ratio,
+                            company.financials[3].ep_ratio,
+                            company.financials[4].ep_ratio
+                            ],
+                          fill: false
+                        }
+                        datasets.push(dataset);
+                      });
+
+
+                      var data = {
+                        labels: ['2012', '2013', '2014', '2015', '2016'],
+                        datasets: datasets
+                      }
+                      console.log(data);
+
+                      var opts = {
+                        responsive: false,
+                        title:{
+                            display:true,
+                            text: sectors[0].sector_name + ' Economic Profit Ratio Chart'
+                        },
+                        tooltips: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        hover: {
+                            mode: 'nearest',
+                            intersect: true
+                        },
+                        scales: {
+                            xAxes: [{
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Year'
+                                }
+                            }],
+                            yAxes: [{
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Economic Profit Ratio'
+                                }
+                            }]
+                        }
+                      }
+                      canvas.width = 1200;
+                      canvas.height = 600;
+                      window.myChart = new Chart(ctx, { type: 'line', data: data, options: opts});
+                      console.log('Chart created');
+                    }
+                });
+
+                });
+
+
+        </script>
+    </head>
+    <body>
+        <h1>Now we add charts</h1>
+        <select id="dropdown-select">
+                <option value="default">Select a Company</option>
+        </select>
+        <div id="canvas-container">
+        <canvas id="canvas"></canvas></div>
+    </body>
+</html>

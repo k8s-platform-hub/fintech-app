@@ -1,0 +1,110 @@
+{
+    "type": "bulk",
+    "args": [
+        {
+            "type": "create_table",
+            "args": {
+                "name": "stock",
+                "primary_key": [
+                    "id"
+                ],
+                "columns": [
+                    {
+                        "name": "id",
+                        "type": "serial"
+                    },
+                    {
+                        "name": "stock_name",
+                        "type": "varchar"
+                    },
+                    {
+                        "name": "sector_name",
+                        "type": "varchar"
+                    },
+                ]
+            }
+        },
+        {
+            "type": "create_table",
+            "args": {
+                "name": "stock_financial_data",
+                "primary_key": [
+                    "id"
+                ],
+                "columns": [
+                    {
+                        "name": "id",
+                        "type": "serial"
+                    },
+                    {
+                        "name": "year",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "stock_id",
+                        "type": "integer",
+                        "references": {
+                            "column": "id",
+                            "table": "stock"
+                        }
+                    },
+                    {
+                        "name": "total_revenue",
+                        "type": "double precision"
+                    },
+                    {
+                        "name": "profit_before_tax",
+                        "type": "double precision"
+                    },
+                    {
+                        "name": "other_income",
+                        "type": "double precision"
+                    },
+                    {
+                        "name": "total_tax",
+                        "type": "double precision"
+                    },
+                    {
+                        "name": "net_block",
+                        "type": "double precision"
+                    },
+                    {
+                        "name": "total_net_current_assets",
+                        "type": "double precision"
+                    },
+                    {
+                        "name": "economic_profit",
+                        "type": "double precision"
+                    },
+                    {
+                        "name": "ep_ratio",
+                        "type": "double precision"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "create_object_relationship",
+            "args": {
+                "name": "stock",
+                "table": "stock_financial_data",
+                "using": {
+                    "foreign_key_constraint_on": "stock_id"
+                }
+            }
+        },
+        {
+            "type": "create_array_relationship",
+            "args": {
+                "name": "financials",
+                "table": "stock",
+                "using": {
+                    "foreign_key_constraint_on": {
+                        "column": "stock_id",
+                        "table": "stock_financial_data"
+                    }
+                }
+            }
+        }
+    ]
+}
