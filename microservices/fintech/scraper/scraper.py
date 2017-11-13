@@ -8,10 +8,10 @@ import math
 print("Starting script")
 stock_data = {}
 financial_data = {}
-project_url = "https://data.<YOUR-HASURA-PROJECT-NAME>.hasura-app.io/"
+project_url = "https://data.controllable78.hasura-app.io/"
 
 # Keep your token secret
-headers = {"Content-Type":"application/json", "Authorization":"Bearer <YOUR-ADMIN-TOKEN-HERE>"}
+headers = {"Content-Type":"application/json", "Authorization":"Bearer 205e47fda303a53275ea56fe6d9cdea79b1152d49c037cae"}
 
 # First get the Balance sheet and profit/loss urls for each company
 def fetch_urls():
@@ -209,7 +209,7 @@ def insert_data():
 
     stock_query = {"type":"insert",
             "args":{
-                "table":"stocks",
+                "table":"stock",
                 "objects":[stock_data],
                 "returning":["id"]
                 }
@@ -253,7 +253,7 @@ def delete_all():
     data_url = project_url + "/v1/query"
 
     query = {"args":{
-        "table": "stocks",
+        "table": "stock",
         "where": {}
     },
     "type": "delete"

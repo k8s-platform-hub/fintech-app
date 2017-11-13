@@ -1,0 +1,8 @@
+- args:
+    name: financials
+    table: stock
+    using:
+      foreign_key_constraint_on:
+        column: stock_id
+        table: stock_financial_data
+  type: create_array_relationship

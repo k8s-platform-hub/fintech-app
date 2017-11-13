@@ -1,0 +1,6 @@
+- args:
+    name: stock
+    table: stock_financial_data
+    using:
+      foreign_key_constraint_on: stock_id
+  type: create_object_relationship

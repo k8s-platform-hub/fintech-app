@@ -1,0 +1,9 @@
+- args:
+    sql: CREATE TABLE "stock_financial_data"(id serial NOT NULL, year integer , stock_id
+      integer NOT NULL, total_revenue numeric , profit_before_tax numeric , other_income
+      numeric , total_tax numeric , net_block numeric , total_net_current_assets numeric
+      , economic_profit numeric , PRIMARY KEY (id) )
+  type: run_sql
+- args:
+    name: stock_financial_data
+  type: add_existing_table_or_view

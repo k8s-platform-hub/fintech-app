@@ -29,7 +29,7 @@
                 hasura.data.query({
                     type: 'select',
                     args: {
-                        table: 'stocks',
+                        table: 'stock',
                         columns: ['*']
                     }},
                     (data) => { makeDropdown(data)},
@@ -46,7 +46,7 @@
                     hasura.data.query({
                         type: 'select',
                         args: {
-                            table: 'stocks',
+                            table: 'stock',
                             columns: ['*',{
                                 name: "financials",
                                 columns: ["ep_ratio","year"],

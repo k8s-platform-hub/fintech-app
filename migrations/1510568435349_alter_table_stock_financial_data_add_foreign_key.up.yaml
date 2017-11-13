@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "stock_financial_data" ADD FOREIGN KEY ("stock_id") REFERENCES
+      "stock" ("id")
+  type: run_sql

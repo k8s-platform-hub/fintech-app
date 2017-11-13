@@ -1,0 +1,7 @@
+- args:
+    sql: CREATE TABLE "stock"(id serial NOT NULL, stock_name text NOT NULL, sector_name
+      text NOT NULL, PRIMARY KEY (id) )
+  type: run_sql
+- args:
+    name: stock
+  type: add_existing_table_or_view
