@@ -1,0 +1,45 @@
+- args:
+    sql: |
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (1, 'Reliance Industries', 'Refineries');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (2, 'Tata Consultancy Services', 'Computers - Software');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (3, 'HDFC Bank', 'Banks - Private Sector');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (4, 'ITC', 'Cigarettes');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (5, 'State Bank of India', 'Banks - Public Sector');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (6, 'Hindustan Unilever', 'Personal Care');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (7, 'Housing Development Finance Corporation', 'Finance - Housing');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (8, 'Maruti Suzuki India', 'Auto - Cars & Jeeps');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (9, 'Oil and Natural Gas Corporation', 'Oil Drilling And Exploration');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (10, 'Infosys', 'Computers - Software');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (11, 'ICICI Bank', 'Banks - Private Sector');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (12, 'Bharti Airtel', 'Telecommunications - Service');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (13, 'Indian Oil Corporation', 'Refineries');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (14, 'Kotak Mahindra Bank', 'Banks - Private Sector');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (15, 'Larsen & Toubro', 'Infrastructure - General');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (16, 'Coal India', 'Mining & Minerals');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (17, 'NTPC', 'Power - Generation & Distribution');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (18, 'Wipro', 'Computers - Software');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (19, 'Tata Motors', 'Auto - LCVs & HCVs');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (20, 'Hindustan Zinc', 'Metals - Non Ferrous');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (21, 'Axis Bank', 'Banks - Private Sector');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (22, 'Sun Pharmaceutical Industries', 'Pharmaceuticals');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (23, 'HCL Technologies', 'Computers - Software');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (24, 'UltraTech Cement', 'Cement - Major');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (25, 'Vedanta', 'Mining & Minerals');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (26, 'Asian Paints', 'Paints & Varnishes');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (27, 'Power Grid Corporation of India', 'Power - Generation & Distribution');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (28, 'Bharat Petroleum Corporation', 'Refineries');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (29, 'Bajaj Finance', 'Finance - Leasing & Hire Purchase');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (30, 'IndusInd Bank', 'Banks - Private Sector');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (31, 'Bajaj Auto', 'Auto - 2 & 3 Wheelers');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (32, 'Mahindra and Mahindra', 'Auto - Cars & Jeeps');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (33, 'Adani Ports and Special Economic Zone', 'Infrastructure - General');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (34, 'Eicher Motors', 'Auto - LCVs & HCVs');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (35, 'Grasim Industries', 'Diversified');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (36, 'Bajaj Finserv', 'Finance - Investments');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (37, 'GAIL India', 'Oil Drilling And Exploration');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (38, 'Bharti Infratel', 'Telecommunications - Equipment');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (39, 'Nestle India', 'Food Processing');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (40, 'Motherson Sumi Systems', 'Auto Ancillaries');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (41, 'Avenue Supermarts', 'Retail');
+      INSERT INTO stock (id, stock_name, sector_name) VALUES (42, 'Hero Motocorp', 'Auto - 2 & 3 Wheelers');
+  type: run_sql
