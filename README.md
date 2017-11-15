@@ -2,9 +2,11 @@
 
 This is a simple fin-tech application made using nodeJS and deployed on Hasura. Follow the following steps to get the app running.
 
-1.  ```
+1.  Get the project from the hub using
+
+```
     hasura quickstart rishi/fintech-app
-    ```
+```
 
 2. Modify your cluster name in the ``microservices/fintech/src/views/index.html``
 

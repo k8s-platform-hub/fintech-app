@@ -3,5 +3,5 @@
     configmap: controller-conf
     namespace: hasura
   data: null
-  kubeContext: controllable78
-  name: controllable78
+  kubeContext: adoptive37
+  name: adoptive37
