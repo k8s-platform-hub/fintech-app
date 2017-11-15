@@ -11,7 +11,9 @@ The economic profit ratio is the ratio of economic profit of the company to the 
 The economic profit is calculated on metrics fetched from a financial statistics site. The exact calculation can be found in scraper/scraper.py.
 
 The app then displays economic performance charts based on the scraped data separated by sector:
-![Charts for a particular sector](https://github.com/hasura/fintech-app/raw/master/charts.png)
+
+![Charts for a particular sector]
+(https://github.com/hasura/fintech-app/raw/master/charts.png)
 
 The quickstart repo comes with sample data that can be used to quickly check out the running application. To get it set up quickly, follow the steps shown below:
 
