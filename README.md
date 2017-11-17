@@ -13,7 +13,7 @@ The economic profit is calculated on metrics fetched from a financial statistics
 The app then displays economic performance charts based on the scraped data separated by sector:
 
 ![Charts for a particular sector]
-(https://raw.githubusercontent.com/hasura/fintech-app/master/charts.png "Charts for a particular sector")
+(https://raw.githubusercontent.com/hasura/fintech-app/master/charts.png "charts for a particular sector")
 
 The quickstart repo comes with sample data that can be used to quickly check out the running application. To get it set up quickly, follow the steps shown below:
 
